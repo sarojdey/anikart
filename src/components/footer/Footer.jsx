@@ -23,10 +23,8 @@ const Footer = () => {
         </ul>
         <div className="infoText">
           Hey there!! I'm Saroj Kumar Dey, and I've created this project to
-          showcase my frontend skills. Taking cues from TMDB, I've integrated
-          their API to bring in some awesome content. Using React as the
-          frontend framework, I've included features like lazy loading and error
-          handling to ensure the website runs smoothly. While this project is
+          showcase my frontend skills, Using React as the
+          frontend framework. This project is
           non-profit and simply a part of my portfolio, it's a great way for me
           to demonstrate what I can do with web development.
         </div>
