@@ -26,7 +26,7 @@
   img {
     height: 35px;
     @include md {
-      height: 50px;
+      height: 40px;
     }
   }
 }
@@ -79,9 +79,7 @@
       :hover {
         color: red;
       }
-      @include md {
-        font-size: 25px;
-      }
+    
     }
     input {
       width: 100%;
@@ -94,10 +92,9 @@
       padding: 0 15px;
       font-size: 14px;
       @include md {
-        height: 60px;
-        font-size: 18px;
-
-        padding: 0 30px;
+        height: 50px;
+        font-size: 17px;
+        padding: 0 15px;
       }
     }
   }
