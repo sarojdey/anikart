@@ -26,14 +26,14 @@ function ImageSlider() {
       sliderRef.current.scrollTo({
         left:
           sliderRef.current.scrollLeft -
-          (sliderRef.current.offsetWidth + scrollbarwidth),
+          window.innerWidth,
         behavior: "smooth",
       });
     } else {
       sliderRef.current.scrollTo({
         left:
           sliderRef.current.scrollLeft +
-          (sliderRef.current.offsetWidth + scrollbarwidth),
+          window.innerWidth,
         behavior: "smooth",
       });
     }
