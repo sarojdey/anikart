@@ -6,13 +6,10 @@
   padding-top: 50px;
   overflow: hidden;
   position: relative;
-  scroll-snap-type: x mandatory;
-  scroll-padding : 0 300px;
   .images {
     display: flex;
     height: 100%;
     img {
-      scroll-snap-align: start;
       height: auto;
       width: 100%;
       flex-shrink: 0;
