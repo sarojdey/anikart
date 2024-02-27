@@ -24,9 +24,11 @@
   position: absolute;
   opacity: 0.5;
   z-index: 1;
-  top: 40%;
+  top: 30%;
+  
   @include md {
     display: block;
+    top: 40%;
   }
   &:hover {
     opacity: 0.8;
