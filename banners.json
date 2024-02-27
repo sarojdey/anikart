@@ -1,5 +1,5 @@
 {
-  "desktop":{
+  "desktop": {
     "1": {
       "url": "/banners/banner1.webp"
     },
@@ -13,7 +13,7 @@
       "url": "/banners/banner4.webp"
     }
   },
-  "mobile":{
+  "mobile": {
     "1": {
       "url": "/banners-sm/banner1.webp"
     },
@@ -25,9 +25,6 @@
     },
     "4": {
       "url": "/banners-sm/banner4.webp"
-    },
-    "5": {
-      "url": "/banners-sm/banner5.webp"
     }
   }
 }
