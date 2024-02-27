@@ -21,12 +21,12 @@ function ImageSlider() {
   const handleScroll = (dir) => {
     if (dir === "left") {
       sliderRef.current.scrollTo({
-        left: sliderRef.current.scrollLeft - sliderRef.current.offsetWidth,
+        left: sliderRef.current.scrollLeft - sliderRef.current.offsetWidth+1,
         behavior: "smooth",
       });
     } else {
       sliderRef.current.scrollTo({
-        left: sliderRef.current.scrollLeft + sliderRef.current.offsetWidth,
+        left: sliderRef.current.scrollLeft + sliderRef.current.offsetWidth+1,
         behavior: "smooth",
       });
     }
