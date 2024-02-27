@@ -1,0 +1,12 @@
+{
+  "1": {
+    "id": 1,
+    "Title": "Spiderman T-shirt",
+    "price": 299,
+    "size": ["s", "m", "xl", "xxl"],
+    "image": {
+      "mobile": "/mobile/spidermantshirt",
+      "desktop": "/desktop/spidermantshirt"
+    }
+  }
+}

@@ -1,10 +1,13 @@
 import React from "react";
 import "./style.scss";
+import ImageSlider from "../../components/imageSlider/ImageSlider";
 
 function Home() {
-  return <div style={{ height: "300vh" }}>
-    janjs
-  </div>;
+  return (
+    <>
+      <ImageSlider />
+    </>
+  );
 }
 
 export default Home;
