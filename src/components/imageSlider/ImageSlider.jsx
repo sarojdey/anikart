@@ -13,20 +13,27 @@ function ImageSlider() {
       left: 0,
       behavior: "smooth",
     });
-    const sliders = window.innerWidth > 786 ? bannerImgs.desktop : bannerImgs.mobile;
+    const sliders =
+      window.innerWidth > 786 ? bannerImgs.desktop : bannerImgs.mobile;
     setBanners(sliders);
     console.log(sliders);
   }, []);
   const sliderRef = useRef();
   const handleScroll = (dir) => {
+    const scrollbarwidth =
+      window.innerWidth - document.documentElement.clientWidth;
     if (dir === "left") {
       sliderRef.current.scrollTo({
-        left: sliderRef.current.scrollLeft - sliderRef.current.offsetWidth,
+        left:
+          sliderRef.current.scrollLeft -
+          (sliderRef.current.offsetWidth + scrollbarwidth),
         behavior: "smooth",
       });
     } else {
       sliderRef.current.scrollTo({
-        left: sliderRef.current.scrollLeft + sliderRef.current.offsetWidth,
+        left:
+          sliderRef.current.scrollLeft +
+          (sliderRef.current.offsetWidth + scrollbarwidth),
         behavior: "smooth",
       });
     }
@@ -51,8 +58,8 @@ function ImageSlider() {
       </BsFillArrowRightCircleFill>
       <div className="slider" ref={sliderRef}>
         <div className="images">
-         { Object.values(banners).map((banner, index) => (
-          <img key={index} src={banner.url} alt={`Banner ${index + 1}`} />
+          {Object.values(banners).map((banner, index) => (
+            <img key={index} src={banner.url} alt={`Banner ${index + 1}`} />
           ))}
         </div>
       </div>
