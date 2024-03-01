@@ -34,10 +34,9 @@
   top: 40%;
   mix-blend-mode: difference;
   background-blend-mode: difference;
-  display: none;
+ 
 
   @include md {
-    display: block;
     top: 37%;
   }
   &:hover {
