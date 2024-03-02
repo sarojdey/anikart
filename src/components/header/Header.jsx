@@ -59,7 +59,7 @@ function Header() {
   const navigationHandler = (type) => {
     if (type === "search") {
       openSearch();
-    } else if (type === "whishlist") {
+    } else if (type === "wishlist") {
       navigate("/wishlist");
     } else if (type === "cart") {
       navigate("/cart");
