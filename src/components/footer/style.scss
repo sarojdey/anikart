@@ -13,7 +13,7 @@
     list-style-type: none;
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: space-evenly;
     gap: 15px;
     margin-bottom: 20px;
     @include md {
@@ -21,6 +21,7 @@
       gap: 30px;
     }
     .menuItem {
+      white-space: nowrap;
       transition: all ease 0.3s;
       cursor: pointer;
       font-size: 12px;

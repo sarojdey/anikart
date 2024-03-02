@@ -44,6 +44,7 @@
     margin: 0 15px;
     color: white;
     position: relative;
+    transition: all ease 0.3s;
     svg {
       font-size: 18px;
     }
@@ -79,7 +80,6 @@
       :hover {
         color: red;
       }
-    
     }
     input {
       width: 100%;
