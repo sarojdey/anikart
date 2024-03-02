@@ -12,6 +12,8 @@ import "./style.scss";
 
 const Footer = () => {
   return (
+    <>
+    <div className="homegrown">HOMEGROWN INDIAN BRAND</div>
     <footer className="footer">
       <ContentWrapper>
         <ul className="menuItems">
@@ -44,6 +46,7 @@ const Footer = () => {
         </div>
       </ContentWrapper>
     </footer>
+    </>
   );
 };
 
