@@ -3,7 +3,9 @@ import "./style.scss";
 
 import ContentWrapper from "../../components/contentWrapper/ContentWrapper";
 import { useNavigate } from "react-router-dom";
+
 function CategoriesGallery({ categories }) {
+  console.log("this is from categoriesGallery:", categories);
   const [mobileView, setMobileView] = useState(false);
   useEffect(() => {
     if (window.innerWidth < 460) {
@@ -14,6 +16,7 @@ function CategoriesGallery({ categories }) {
   }, []);
   const navigate = useNavigate();
   const navigationHandler = (category) => {
+    console.log("navigationHandler is being called.");
     console.log(category.attributes.title);
     navigate(`/categories/${category.attributes.type}`, {
       state: {
@@ -29,6 +32,7 @@ function CategoriesGallery({ categories }) {
         <div className="grid">
           {mobileView
             ? categories?.data?.slice(0, 4).map((category, index) => {
+              
                 return (
                   <div
                     className="category"
