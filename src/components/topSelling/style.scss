@@ -1,0 +1,57 @@
+@import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap");
+@import "../../mixins.scss";
+
+.containersection {
+  display: flex;
+  margin-top: 2rem;
+  flex-direction: column;
+  height: 400px;
+
+  .section-title {
+    z-index: 1;
+    width: 100%;
+    margin: 0 0 1rem 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    .topSelling {
+      font-family: "Bebas Neue", sans-serif;
+      font-weight: 400;
+      font-style: normal;
+      font-size: 3rem;
+      color: rgb(19, 19, 19);
+    }
+  }
+  .slider {
+    padding-top: 0;
+    margin-bottom: 2rem;
+    height: auto;
+    overflow-x: scroll;
+    overflow-y: hidden;
+    background-color:white;
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(20, minmax(200px, 1fr));
+      gap: 1rem;
+      @include md {
+        gap: 0;
+        grid-template-columns: repeat(20, minmax(320px, 1fr));
+      }
+
+      .cards {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        img {
+          flex-shrink: 0;
+          height: 270px;
+          object-fit: cover;
+          @include md {
+            height: 350px;
+          }
+        }
+      }
+    }
+  }
+}

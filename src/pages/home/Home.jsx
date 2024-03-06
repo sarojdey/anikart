@@ -3,6 +3,7 @@ import "./style.scss";
 import ImageSlider from "../../components/imageSlider/ImageSlider";
 import CategoriesGallery from "../../components/categoriesGallery/CategoriesGallery";
 import { fetchDataFromApi } from "../../utils/api";
+import TopSelling from "../../components/topSelling/TopSelling";
 function Home() {
   const [bannerImgs, setBannerImgs] = useState([]);
   const [categories, setCategories] = useState({});
@@ -29,6 +30,7 @@ function Home() {
     <>
       <ImageSlider bannerImgs={bannerImgs} />
       <CategoriesGallery categories={categories} />
+      <TopSelling />
     </>
   );
 }
