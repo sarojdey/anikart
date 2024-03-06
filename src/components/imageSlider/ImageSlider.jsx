@@ -17,7 +17,6 @@ function ImageSlider({ bannerImgs }) {
     if (bannerImgs) {
       const sliders = window.innerWidth > 786 ? bannerImgs[0] : bannerImgs[1];
       setBanners(sliders || []);
-      console.log(sliders);
     }
   }, [bannerImgs]);
   const sliderRef = useRef();
