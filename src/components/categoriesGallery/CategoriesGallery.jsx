@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from "react";
 import "./style.scss";
-import categories from "../../../categories.json";
+
 import ContentWrapper from "../../components/contentWrapper/ContentWrapper";
 import { useNavigate } from "react-router-dom";
-function CategoriesGallery() {
+function CategoriesGallery({ categories }) {
   const [mobileView, setMobileView] = useState(false);
   useEffect(() => {
     if (window.innerWidth < 460) {
@@ -14,9 +14,12 @@ function CategoriesGallery() {
   }, []);
   const navigate = useNavigate();
   const navigationHandler = (category) => {
-    console.log(category.title);
-    navigate(`/categories/${category.type}`, {
-      state: { title: category.title, type: category.type },
+    console.log(category.attributes.title);
+    navigate(`/categories/${category.attributes.type}`, {
+      state: {
+        title: category.attributes.title,
+        type: category.attributes.type,
+      },
     });
   };
   return (
@@ -25,23 +28,7 @@ function CategoriesGallery() {
         <span className="categories">Categories</span>
         <div className="grid">
           {mobileView
-            ? Object.values(categories)
-                .slice(0, 4)
-                .map((category, index) => {
-                  return (
-                    <div
-                      className="category"
-                      key={index}
-                      onClick={() => navigationHandler(category)}
-                    >
-                      <div className="card">
-                        <img src={category.url} alt={category.title} />
-                      </div>
-                      {/* <span className="title">{category.title}</span> */}
-                    </div>
-                  );
-                })
-            : Object.values(categories).map((category, index) => {
+            ? categories?.data?.slice(0, 4).map((category, index) => {
                 return (
                   <div
                     className="category"
@@ -49,7 +36,27 @@ function CategoriesGallery() {
                     onClick={() => navigationHandler(category)}
                   >
                     <div className="card">
-                      <img src={category.url} alt={category.title} />
+                      <img
+                        src={category.attributes.img.data.attributes.url}
+                        alt={category.attributes.title}
+                      />
+                    </div>
+                    {/* <span className="title">{category.title}</span> */}
+                  </div>
+                );
+              })
+            : categories?.data?.map((category, index) => {
+                return (
+                  <div
+                    className="category"
+                    key={index}
+                    onClick={() => navigationHandler(category)}
+                  >
+                    <div className="card">
+                      <img
+                        src={category.attributes.img.data.attributes.url}
+                        alt={category.attributes.title}
+                      />
                     </div>
                     {/* <span className="title">{category.title}</span> */}
                   </div>
