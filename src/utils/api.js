@@ -10,12 +10,12 @@ const params = {
   },
 };
 
-console.log(BASE_URL);
+
 
 export const fetchDataFromApi = async (url) => {
   try {
-    console.log(BASE_URL);
-    console.log(STRAPI_TOKEN);
+    // console.log(BASE_URL);
+    // console.log(STRAPI_TOKEN);
     const { data } = await axios.get(BASE_URL + url, params);
     return data;
   } catch (error) {

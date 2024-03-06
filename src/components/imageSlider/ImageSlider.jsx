@@ -1,22 +1,25 @@
 import React, { useEffect, useRef, useState } from "react";
-import bannerImgs from "../../../banners.json";
 import "./style.scss";
 import {
   BsFillArrowLeftCircleFill,
   BsFillArrowRightCircleFill,
 } from "react-icons/bs";
 
-function ImageSlider() {
-  const [banners, setBanners] = useState({});
+function ImageSlider({ bannerImgs }) {
+  const [banners, setBanners] = useState([]);
   useEffect(() => {
     sliderRef.current.scrollTo({
       left: 0,
       behavior: "smooth",
     });
-    const sliders = window.innerWidth > 786 ? bannerImgs.desktop : bannerImgs.mobile;
-    setBanners(sliders);
-    // console.log(sliders);
-  }, []);
+
+    //check bannerImgs if it contains data or not
+    if (bannerImgs) {
+      const sliders = window.innerWidth > 786 ? bannerImgs[0] : bannerImgs[1];
+      setBanners(sliders || []);
+      console.log(sliders);
+    }
+  }, [bannerImgs]);
   const sliderRef = useRef();
   const handleScroll = (dir) => {
     if (dir === "left") {
@@ -51,8 +54,12 @@ function ImageSlider() {
       </BsFillArrowRightCircleFill>
       <div className="slider" ref={sliderRef}>
         <div className="images">
-         { Object.values(banners).map((banner, index) => (
-          <img key={index} src={banner.url} alt={`Banner ${index + 1}`} />
+          {banners?.attributes?.images?.data?.map((banner, index) => (
+            <img
+              key={index}
+              src={banner.attributes.url}
+              alt={`Banner ${index + 1}`}
+            />
           ))}
         </div>
       </div>
