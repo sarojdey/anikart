@@ -23,15 +23,15 @@
     flex-direction: column;
   }
   .menuItems {
+    width: 100%;
     list-style-type: none;
     display: flex;
     align-items: center;
-    justify-content: center;
-    gap: 8px;
+    justify-content: space-evenly;
+
     margin-bottom: 20px;
     @include md {
       margin-bottom: 30px;
-      gap: 30px;
     }
     .menuItem {
       white-space: nowrap;
