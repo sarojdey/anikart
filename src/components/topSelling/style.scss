@@ -7,6 +7,10 @@
   flex-direction: column;
   height: 400px;
 
+  @include md{
+    height: 450px;
+  }
+
   .section-title {
     z-index: 1;
     width: 100%;
@@ -46,7 +50,7 @@
         img {
           flex-shrink: 0;
           height: 270px;
-          object-fit: cover;
+          
           @include md {
             height: 350px;
           }
