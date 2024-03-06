@@ -1,4 +1,8 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { useEffect } from "react";
+import { fetchDataFromApi } from "./utils/api";
+import { useSelector, useDispatch } from "react-redux";
+import { getCategories, getProducts } from "./store/homeSlice";
 
 import Header from "./components/header/Header";
 import Footer from "./components/footer/Footer";
@@ -11,6 +15,27 @@ import PageNotFound from "./pages/pageNotFound/PageNotFound";
 import User from "./pages/user/User";
 
 function App() {
+  const dispatch = useDispatch();
+  const { categories } = useSelector((state) => state.home);
+
+  useEffect(() => {
+    // fetchCategories();
+    // fetchProducts();
+  }, []);
+
+  // const fetchCategories = () => {
+  //   fetchDataFromApi("/api/categories?populate=*").then((res) => {
+  //     console.log(res);
+  //     dispatch(getCategories(res));
+  //   });
+  // };
+
+  // const fetchProducts = () => {
+  //   fetchDataFromApi("/products").then((res) => {
+  //     dispatch(getProducts(res));
+  //   });
+  // };
+
   return (
     <BrowserRouter>
       <Header />

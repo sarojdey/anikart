@@ -15,7 +15,7 @@ function ImageSlider() {
     });
     const sliders = window.innerWidth > 786 ? bannerImgs.desktop : bannerImgs.mobile;
     setBanners(sliders);
-    console.log(sliders);
+    // console.log(sliders);
   }, []);
   const sliderRef = useRef();
   const handleScroll = (dir) => {
