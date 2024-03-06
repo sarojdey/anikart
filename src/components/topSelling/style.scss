@@ -5,9 +5,9 @@
   display: flex;
   margin-top: 2rem;
   flex-direction: column;
-  height: 400px;
+  height: 320px;
 
-  @include md{
+  @include md {
     height: 450px;
   }
 
@@ -32,11 +32,12 @@
     height: auto;
     overflow-x: scroll;
     overflow-y: hidden;
-    background-color:white;
+    background-color: white;
     .grid {
       display: grid;
-      grid-template-columns: repeat(20, minmax(200px, 1fr));
-      gap: 1rem;
+      grid-template-columns: repeat(20, minmax(180px, 1fr));
+      padding-left: 3px;
+      gap: 0.5rem;
       @include md {
         gap: 0;
         grid-template-columns: repeat(20, minmax(320px, 1fr));
@@ -49,8 +50,8 @@
         width: 100%;
         img {
           flex-shrink: 0;
-          height: 270px;
-          
+          height: 225px;
+          object-fit: cover;
           @include md {
             height: 350px;
           }
