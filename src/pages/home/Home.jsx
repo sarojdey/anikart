@@ -6,10 +6,12 @@ import { fetchDataFromApi } from "../../utils/api";
 import TopSelling from "../../components/topSelling/TopSelling";
 function Home() {
   const [bannerImgs, setBannerImgs] = useState([]);
+  const [topSelling, setTopSelling] = useState([]);
   const [categories, setCategories] = useState({});
   useEffect(() => {
     getCategories();
     getBanners();
+    getTopSelling();
     console.log("apicalled");
   }, []);
 
@@ -26,11 +28,18 @@ function Home() {
       setBannerImgs(res.data);
     });
   };
+  const getTopSelling = () => {
+    // ?sort=sales:desc for gettion sorted value but cant use populate and sort at once
+    fetchDataFromApi("/api/products?populate=*").then((res) => {
+      console.log("Top selling: ", res);
+      setTopSelling(res.data);
+    });
+  };
   return (
     <>
       <ImageSlider bannerImgs={bannerImgs} />
       <CategoriesGallery categories={categories} />
-      <TopSelling />
+      <TopSelling topSelling={topSelling}/>
     </>
   );
 }

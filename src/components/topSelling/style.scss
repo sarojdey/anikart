@@ -5,10 +5,10 @@
   display: flex;
   margin-top: 2rem;
   flex-direction: column;
-  height: 320px;
+  height: 400px;
 
   @include md {
-    height: 450px;
+    height: 500px;
   }
 
   .section-title {
@@ -29,12 +29,13 @@
   .slider {
     padding-top: 0;
     margin-bottom: 2rem;
-    height: auto;
+    height: 100%;
     overflow-x: scroll;
     overflow-y: hidden;
     background-color: white;
     .grid {
       display: grid;
+      height: 100%;
       grid-template-columns: repeat(20, minmax(180px, 1fr));
       padding-left: 3px;
       gap: 0.5rem;
@@ -45,8 +46,10 @@
 
       .cards {
         display: flex;
+        flex-direction: column;
         justify-content: center;
         align-items: center;
+        height: 100%;
         width: 100%;
         img {
           flex-shrink: 0;
@@ -54,6 +57,26 @@
           object-fit: cover;
           @include md {
             height: 350px;
+          }
+        }
+        .productname {
+          display: flex;
+          flex-direction: column;
+          width: 100%;
+          margin-top: 10px;
+          padding-left: 10px;
+          span {
+            width: 90%;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+          }
+          @include md {
+            padding-left: 30px;
+          }
+          .price {
+            margin-top: 5px;
+            font-weight: 700;
           }
         }
       }

@@ -1,7 +1,19 @@
-import React from "react";
+//! Onclick Navigate :TO DO
+
+
+
+import React, { useEffect, useState } from "react";
 import "./style.scss";
 
-function TopSelling() {
+function TopSelling({ topSelling }) {
+  const [products, setProducts] = useState([]);
+  useEffect(() => {
+    if (topSelling) {
+      setProducts(topSelling);
+      console.log("got top selling:", topSelling);
+    }
+  }, [topSelling]);
+
   return (
     <div className="containersection">
       <div className="section-title">
@@ -9,30 +21,17 @@ function TopSelling() {
       </div>
       <div className="slider">
         <div className="grid">
-          <div className="cards">
-            <img src="/os1.webp" alt="skln" />
-          </div>
-          <div className="cards">
-            <img src="/os1.webp" alt="akjn" />
-          </div>
-          <div className="cards">
-            <img src="/os1.webp" alt="akls" />
-          </div>
-          <div className="cards">
-            <img src="/os1.webp" alt="aklns" />
-          </div>
-          <div className="cards">
-            <img src="/os1.webp" alt="akjsn" />
-          </div>
-          <div className="cards">
-            <img src="/os1.webp" alt="aklns" />
-          </div>
-          <div className="cards">
-            <img src="/os1.webp" alt="akn" />
-          </div>
-          <div className="cards">
-            <img src="/os1.webp" alt="akjsn" />
-          </div>
+          {products.map((product) => {
+            return (
+              <div className="cards" key={product.id}>
+                <img src={product.attributes.image.data[0].attributes.url} alt={product.attributes.type} />
+                <div className="productname">
+                  <span>{product.attributes.title}</span>
+                  <span className="price">₹{product.attributes.price}</span>
+                </div>
+              </div>
+            );
+          })}
         </div>
       </div>
     </div>
