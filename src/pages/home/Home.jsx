@@ -30,7 +30,7 @@ function Home() {
   };
   const getTopSelling = () => {
     // ?sort=sales:desc for gettion sorted value but cant use populate and sort at once
-    fetchDataFromApi("/api/products?populate=*").then((res) => {
+    fetchDataFromApi("/api/products?populate=*&filters[categories][id]=6").then((res) => {
       console.log("Top selling: ", res);
       setTopSelling(res.data);
     });
