@@ -3,6 +3,8 @@ import "./style.scss";
 
 import { useLocation } from "react-router-dom";
 
+import { FaHeart, FaShoppingCart } from "react-icons/fa";
+
 // function Categories() {
 //   return <div className="title">{location.state.type}</div>;
 // }
@@ -66,8 +68,14 @@ function ProductDetails() {
           </div>
         </div>
         <div className="addBtn">
-          <div className="addWish">Wish</div>
-          <div className="addCart">cart</div>
+          <div className="addWish">
+            <FaHeart/>
+            <span>Wishlist</span>
+          </div>
+          <div className="addCart">
+            <FaShoppingCart/>
+            <span>Cart</span>
+          </div>
         </div>
         <div className="space"></div>
       </div>
