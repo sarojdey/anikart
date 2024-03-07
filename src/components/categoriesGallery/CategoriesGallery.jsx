@@ -18,7 +18,7 @@ function CategoriesGallery({ categories }) {
   const navigationHandler = (category) => {
     // console.log("navigationHandler is being called.");
     // console.log(category.attributes.title);
-    navigate(`/categories/${category.attributes.type}`, {
+    navigate(`/categories/${category.id}`, {
       state: {
         title: category.attributes.title,
         type: category.attributes.type,
