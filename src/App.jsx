@@ -13,6 +13,7 @@ import Wishlist from "./pages/wishlist/Wishlist";
 import SearchResult from "./pages/searchResults/SearchResults";
 import PageNotFound from "./pages/pageNotFound/PageNotFound";
 import User from "./pages/user/User";
+import ProductDetails from "./pages/productDetails/ProductDetails";
 
 function App() {
   const dispatch = useDispatch();
@@ -46,6 +47,7 @@ function App() {
         <Route path="/wishlist" element={<Wishlist />}></Route>
         <Route path="/search/:query" element={<SearchResult />}></Route>
         <Route path="/user" element={<User />}></Route>
+        <Route path="/product/:id" element={<ProductDetails />}></Route>
         <Route path="*" element={<PageNotFound />}></Route>
       </Routes>
       <Footer />
