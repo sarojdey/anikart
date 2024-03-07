@@ -48,19 +48,19 @@ function ProductDetails() {
               <div
                 className="op"
                 onClick={() => {
-                  handleCounter("plus");
+                  handleCounter("minus");
                 }}
               >
-                +
+                -
               </div>
               <div className="num">{counter}</div>
               <div
                 className="op"
                 onClick={() => {
-                  handleCounter("minus");
+                  handleCounter("plus");
                 }}
               >
-                -
+                +
               </div>
             </div>
           </div>
