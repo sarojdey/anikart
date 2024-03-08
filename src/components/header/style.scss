@@ -31,8 +31,10 @@
   }
 }
 .menuItems {
+  width: 40%;
   list-style-type: none;
   display: flex;
+  justify-content: end;
   align-items: center;
   @include md {
     display: flex;
@@ -41,7 +43,10 @@
     height: 60px;
     display: flex;
     align-items: center;
-    margin: 0 15px;
+    margin: 0 7px;
+    @include md{
+      margin: 0 15px;
+    }
     color: white;
     position: relative;
     transition: all ease 0.3s;

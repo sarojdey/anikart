@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
+import { useSelector, useDispatch } from "react-redux";
 import {
   FaHeart,
   FaSearch,
@@ -13,6 +14,8 @@ import ContentWrapper from "../contentWrapper/ContentWrapper";
 import logo from "../../assets/anikart.png";
 
 function Header() {
+  const { wishList ,cart} = useSelector((state) => state.home);
+
   const [show, setShow] = useState("show");
   const [lastScrollY, setLastScrollY] = useState(0);
   const [query, setQuery] = useState("");
@@ -95,7 +98,7 @@ function Header() {
                   navigationHandler("wishlist");
                 }}
               />
-              <div className="point">1</div>
+              <div className="point">{wishList.length}</div>
             </div>
           </li>
           <li className="menuItem">

@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import "./style.scss";
 
 import { useLocation } from "react-router-dom";
+import { useSelector, useDispatch } from "react-redux";
+import { getWishList, getCart } from "../../store/homeSlice";
 
 import { FaHeart, FaShoppingCart } from "react-icons/fa";
 
@@ -13,6 +15,18 @@ function ProductDetails() {
   const [product, setProduct] = useState();
   const [counter, setCounter] = useState(1);
   const location = useLocation();
+
+  const dispatch = useDispatch();
+  
+
+  const whisListHandler = (product) => {
+    dispatch(
+      getWishList({
+        productInfo: product,
+        quantity: counter,
+      })
+    );
+  };
 
   const handleCounter = (op) => {
     if (op === "plus") {
@@ -68,12 +82,17 @@ function ProductDetails() {
           </div>
         </div>
         <div className="addBtn">
-          <div className="addWish">
-            <FaHeart/>
+          <div
+            className="addWish"
+            onClick={() => {
+              whisListHandler(product);
+            }}
+          >
+            <FaHeart />
             <span>Wishlist</span>
           </div>
           <div className="addCart">
-            <FaShoppingCart/>
+            <FaShoppingCart />
             <span>Cart</span>
           </div>
         </div>

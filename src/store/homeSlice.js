@@ -5,6 +5,8 @@ export const homeSlice = createSlice({
   initialState: {
     categories: {},
     products: {},
+    wishList: [],
+    cart: {},
   },
   reducers: {
     getCategories: (state, action) => {
@@ -13,9 +15,29 @@ export const homeSlice = createSlice({
     getProducts: (state, action) => {
       state.products = action.payload;
     },
+    getWishList: (state, action) => {
+      console.log(action.payload);
+      const newItem = action.payload.productInfo;
+      const newItemQuantity = action.payload.quantity;
+      const items = [...state.wishList];
+      console.log(items);
+      const index = items.findIndex((p) => p.id === newItem.id);
+      if (index !== -1) {
+        items[index].attributes.quantity += newItemQuantity;
+      } else {
+        newItem.attributes.quantity=newItemQuantity;
+        items.push(newItem);
+        console.log(items);
+      }
+      state.wishList = items;
+    },
+    getCart: (state, action) => {
+      state.cart = action.payload;
+    },
   },
 });
 
-export const { getCategories, getProducts } = homeSlice.actions;
+export const { getCategories, getProducts, getWishList, getCart } =
+  homeSlice.actions;
 
 export default homeSlice.reducer;
