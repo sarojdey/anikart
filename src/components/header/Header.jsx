@@ -88,18 +88,25 @@ function Header() {
             />
           </li>
           <li className="menuItem">
-            <FaHeart
-              onClick={() => {
-                navigationHandler("wishlist");
-              }}
-            />
+            <div className="con">
+              {" "}
+              <FaHeart
+                onClick={() => {
+                  navigationHandler("wishlist");
+                }}
+              />
+              <div className="point">1</div>
+            </div>
           </li>
           <li className="menuItem">
-            <FaShoppingCart
-              onClick={() => {
-                navigationHandler("cart");
-              }}
-            />
+            <div className="con">
+              <FaShoppingCart
+                onClick={() => {
+                  navigationHandler("cart");
+                }}
+              />
+              <div className="point cart">69</div>
+            </div>
           </li>
           <li className="menuItem">
             <FaUser
