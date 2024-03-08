@@ -3,7 +3,9 @@ import "./style.scss";
 
 import { useLocation } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
-import { getWishList, getCart } from "../../store/homeSlice";
+import { getWishList } from "../../store/homeSlice";
+import { getCart } from "../../store/cartSlice";
+
 
 import { FaHeart, FaShoppingCart } from "react-icons/fa";
 
@@ -17,13 +19,24 @@ function ProductDetails() {
   const location = useLocation();
 
   const dispatch = useDispatch();
-  
 
   const whisListHandler = (product) => {
+    console.log("wishlist clicked");
+    const wishcount = counter;
     dispatch(
       getWishList({
         productInfo: product,
-        quantity: counter,
+        quantity: wishcount,
+      })
+    );
+  };
+  const cartHandler = (product) => {
+    console.log("cart clicked");
+    const cartcount = counter;
+    dispatch(
+      getCart({
+        productInfo: product,
+        quantity: cartcount,
       })
     );
   };
@@ -91,7 +104,12 @@ function ProductDetails() {
             <FaHeart />
             <span>Wishlist</span>
           </div>
-          <div className="addCart">
+          <div
+            className="addCart"
+            onClick={() => {
+              cartHandler(product);
+            }}
+          >
             <FaShoppingCart />
             <span>Cart</span>
           </div>

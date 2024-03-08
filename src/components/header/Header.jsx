@@ -14,7 +14,8 @@ import ContentWrapper from "../contentWrapper/ContentWrapper";
 import logo from "../../assets/anikart.png";
 
 function Header() {
-  const { wishList ,cart} = useSelector((state) => state.home);
+  const { wishList } = useSelector((state) => state.home);
+  const { cart} = useSelector((state) => state.cart);
 
   const [show, setShow] = useState("show");
   const [lastScrollY, setLastScrollY] = useState(0);
@@ -22,6 +23,8 @@ function Header() {
   const [showSearch, setShowSearch] = useState(false);
   const navigate = useNavigate();
   const location = useLocation();
+
+ 
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -108,7 +111,7 @@ function Header() {
                   navigationHandler("cart");
                 }}
               />
-              <div className="point cart">69</div>
+              <div className="point cart">{cart.length}</div>
             </div>
           </li>
           <li className="menuItem">

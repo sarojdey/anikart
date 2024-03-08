@@ -1,6 +1,6 @@
 import { configureStore } from "@reduxjs/toolkit";
 import homeSlice from "./homeSlice";
-
+import cartSlice from "./cartSlice";
 //! For persisting redux states
 import {
   persistReducer,
@@ -14,6 +14,7 @@ import {
 import storage from "redux-persist/lib/storage";
 import { combineReducers } from "@reduxjs/toolkit";
 
+
 const persistConfig = {
   key: "root",
   version: 1,
@@ -22,6 +23,7 @@ const persistConfig = {
 
 const reducer = combineReducers({
   home: homeSlice,
+  cart: cartSlice
 });
 
 const persistedReducer = persistReducer(persistConfig, reducer);
