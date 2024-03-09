@@ -8,7 +8,7 @@ import { removeCart } from "../../store/cartSlice";
 
 function Cart() {
   const [cartLength, setCartLength] = useState(0);
-  const { cart } = useSelector((state) => state.cart);
+  const { cart ,subtotal} = useSelector((state) => state.cart);
 
   useEffect(() => {
     setCartLength(cart.length);
@@ -62,7 +62,7 @@ function Cart() {
         </div>
       </div>
       <div className="subtotal">
-        <span className="amount">Subtotal: 1231</span>
+        <span className="amount">Subtotal: ₹{subtotal}</span>
         <div className="checkoutAll">
           <span>Checkout</span>
           <MdOutlinePayment />
