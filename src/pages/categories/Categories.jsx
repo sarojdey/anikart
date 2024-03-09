@@ -33,7 +33,7 @@ function Categories() {
   };
 
   const location = useLocation();
-  return productsQ >= 4? (
+  return productsQ ? (
     <>
     <div className="space"></div>
       <div className="categoryName">
