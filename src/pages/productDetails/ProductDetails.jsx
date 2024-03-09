@@ -6,7 +6,6 @@ import { useSelector, useDispatch } from "react-redux";
 import { getWishList } from "../../store/homeSlice";
 import { getCart } from "../../store/cartSlice";
 
-
 import { FaHeart, FaShoppingCart } from "react-icons/fa";
 
 // function Categories() {
@@ -14,6 +13,7 @@ import { FaHeart, FaShoppingCart } from "react-icons/fa";
 // }
 
 function ProductDetails() {
+  const [success, setSucess] = useState("");
   const [product, setProduct] = useState();
   const [counter, setCounter] = useState(1);
   const location = useLocation();
@@ -29,6 +29,13 @@ function ProductDetails() {
         quantity: wishcount,
       })
     );
+  };
+
+  const successHandler = () => {
+    setSucess("success");
+    setTimeout(() => {
+      setSucess("");
+    }, 1500);
   };
   const cartHandler = (product) => {
     console.log("cart clicked");
@@ -94,10 +101,12 @@ function ProductDetails() {
             </div>
           </div>
         </div>
+        {success ? <div className={success}>Item added!!</div> : <></>}
         <div className="addBtn">
           <div
             className="addWish"
             onClick={() => {
+              successHandler();
               whisListHandler(product);
             }}
           >
@@ -107,6 +116,7 @@ function ProductDetails() {
           <div
             className="addCart"
             onClick={() => {
+              successHandler()
               cartHandler(product);
             }}
           >
