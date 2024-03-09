@@ -42,7 +42,10 @@
     align-items: center;
     height: 100%;
     width: 100%;
-    max-width: 12rem;
+    max-width: 13rem;
+    @include md{
+      max-width: 20rem;
+    }
     img {
       border-radius: 3px;
       flex-shrink: 0;

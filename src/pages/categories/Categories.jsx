@@ -8,23 +8,23 @@ import NothingToShow from "../../components/nothingToShow/NothingToShow";
 function Categories() {
   const [productsQ, setProductsQ] = useState(0);
   const [products, setProducts] = useState([]);
+  const [loading, setLoading] = useState(true);
   const { type } = useParams();
   const navigate = useNavigate();
 
   const { data } = useFetch(
-    //! was stuck here for hours.. a fkn headache
     `/api/products?populate=*&filters[categories][id]=${type}`
   );
 
   useEffect(() => {
     if (data.data) {
-      console.log(data?.data.length);
-      setProductsQ(data?.data.length);
-      setProducts(data?.data);
+      setProductsQ(data.data.length);
+      setProducts(data.data);
+      setLoading(false); // Set loading to false when data is fetched
     }
   }, [data]);
+
   const navigationHandler = (product) => {
-    // console.log("navigationHandler is being called.");
     navigate(`/product/${product.id}`, {
       state: {
         productInfo: product,
@@ -33,9 +33,14 @@ function Categories() {
   };
 
   const location = useLocation();
+
+  if (loading) {
+    return <div className="load">Loading...</div>;
+  }
+
   return productsQ ? (
     <>
-    <div className="space"></div>
+      <div className="space"></div>
       <div className="categoryName">
         <span>{location.state.title}</span>
       </div>
