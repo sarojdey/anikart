@@ -14,6 +14,12 @@ export const homeSlice = createSlice({
     getProducts: (state, action) => {
       state.products = action.payload;
     },
+    removeWishList: (state, action) => {
+      const index = action.payload;
+      const temp = state.wishList;
+      temp.splice(index, 1);
+      state.wishList = temp;
+    },
     getWishList: (state, action) => {
       const newItem = action.payload.productInfo;
       const newItemQuantity = action.payload.quantity;
@@ -46,6 +52,6 @@ export const homeSlice = createSlice({
   },
 });
 
-export const { getCategories, getProducts, getWishList } = homeSlice.actions;
+export const { getCategories, getProducts, getWishList, removeWishList } = homeSlice.actions;
 
 export default homeSlice.reducer;
