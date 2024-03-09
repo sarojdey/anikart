@@ -1,0 +1,141 @@
+@import "../../mixins.scss";
+
+.space {
+  height: 6rem;
+}
+.subtotal {
+  width: 100%;
+  height: 3rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: rgb(19, 19, 19);
+  color: whitesmoke;
+  .amount {
+    margin-left: 2rem;
+    font-size: 1.1rem;
+    font-weight: 600;
+  }
+  .checkoutAll {
+    cursor: pointer;
+    height: 90%;
+    border-radius: 5px;
+    padding: 0 1rem;
+    background-color: rgb(245, 212, 0);
+    color: rgb(19, 19, 19);
+   
+    transition: all ease 0.3s;
+    &:hover {
+      background-color: rgb(255, 228, 53);
+    }
+    margin-right: 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.1rem;
+    font-weight: 600;
+    svg {
+      font-size: 1.5rem;
+      margin-left: 0.5rem;
+    }
+  }
+}
+.cartX {
+  height: auto;
+  width: 90%;
+  margin: 0 auto 2rem auto;
+
+  .cartTableX {
+    display: flex;
+    flex-direction: column;
+
+    width: 100%;
+    height: 100%;
+    .cartItemX {
+      background-color: whitesmoke;
+      box-shadow: 5px 5px 10px 0 rgba(0, 0, 0, 0.5);
+      overflow: hidden;
+      @include md {
+        height: 14rem;
+      }
+      border-radius: 10px;
+      margin-bottom: 1rem;
+      width: 100%;
+      height: 8rem;
+      display: flex;
+
+      .thumbnail {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        width: 30%;
+        img {
+          height: 95%;
+        }
+      }
+      .productDetails {
+        overflow-y: scroll;
+
+        width: 50%;
+        display: flex;
+        flex-direction: column;
+        span {
+          padding: 1rem;
+        }
+        .productTitle {
+          font-size: 1.1rem;
+          font-weight: 600;
+        }
+        .productQuantity {
+          font-weight: 500;
+        }
+        .productPrice {
+          font-weight: 600;
+          color: green;
+        }
+      }
+      .addContainer {
+        background-color: rgb(19, 19, 19);
+        @include md {
+          flex-direction: row;
+        }
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+        align-items: center;
+        width: 20%;
+
+        font-size: 2rem;
+        .checkout {
+          width: 3rem;
+          height: 3rem;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          background-color: rgb(245, 212, 0);
+          color: rgb(19, 19, 19);
+          border-radius: 3px;
+          transition: all ease 0.3s;
+          &:hover {
+            background-color: rgb(255, 228, 53);
+          }
+        }
+        .delete {
+          width: 3rem;
+          height: 3rem;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          border-radius: 3px;
+          background-color: rgb(255, 0, 85);
+          color: whitesmoke;
+          transition: all ease 0.3s;
+          &:hover {
+            background-color: rgb(255, 34, 108);
+          }
+        }
+      }
+    }
+  }
+}

@@ -16,13 +16,14 @@ function Wishlist() {
   }, [wishList]);
   const dispatch = useDispatch();
 
-  const cartHandler = (product) => {
+  const cartHandler = (product, i) => {
     dispatch(
       getCart({
         productInfo: product,
         quantity: product.attributes.quantity,
       })
     );
+    removeHandler(i);
   };
 
   const removeHandler = (i) => {
@@ -57,7 +58,7 @@ function Wishlist() {
                   <div
                     className="addtocart"
                     onClick={() => {
-                      cartHandler(product);
+                      cartHandler(product, index);
                     }}
                   >
                     <FaShoppingCart />
@@ -76,6 +77,7 @@ function Wishlist() {
           })}
         </div>
       </div>
+      
     </>
   ) : (
     <div>

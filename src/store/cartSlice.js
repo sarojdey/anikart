@@ -4,8 +4,19 @@ export const cartSlice = createSlice({
   name: "cart",
   initialState: {
     cart: [],
+    subtotal: 0,
   },
+
   reducers: {
+    removeCart: (state, action) => {
+      const index = action.payload;
+      const removedItem = state.cart[index];
+      const tempSub =
+        state.subtotal -
+        removedItem.attributes.price * removedItem.attributes.quantity;
+      state.subtotal = tempSub;
+      state.cart.splice(index, 1);
+    },
     getCart: (state, action) => {
       const newItem = action.payload.productInfo;
       const newItemQuantity = action.payload.quantity;
@@ -34,10 +45,13 @@ export const cartSlice = createSlice({
           },
         ];
       }
+      const tempSub =
+        state.subtotal + newItemQuantity * newItem.attributes.price;
+      state.subtotal = tempSub;
     },
   },
 });
 
-export const { getCart } = cartSlice.actions;
+export const { getCart, removeCart } = cartSlice.actions;
 
 export default cartSlice.reducer;
