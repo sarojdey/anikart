@@ -62,7 +62,7 @@ function Cart() {
         </div>
       </div>
       <div className="subtotal">
-        <span className="amount">Subtotal: ₹{subtotal}</span>
+        <span className="amount">Sub-Total: ₹{subtotal}</span>
         <div className="checkoutAll">
           <span>Checkout</span>
           <MdOutlinePayment />
