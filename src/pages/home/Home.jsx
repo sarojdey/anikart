@@ -13,7 +13,7 @@ function Home() {
 
   useEffect(() => {
     Promise.all([getCategories(), getBanners(), getTopSelling()]).then(() => {
-      setLoading(false);
+      // setLoading(false);
     });
   }, []);
 
@@ -38,7 +38,17 @@ function Home() {
   };
 
   if (loading) {
-    return <div className="load">Loading...</div>;
+    return (
+      <>
+        <div className="load">
+          <div className="serverLatency">
+            <span>Loading...</span>
+            <span>Excuse the latency.</span>
+            <span> The server is on a free plan 🥲</span>
+          </div>
+        </div>
+      </>
+    );
   }
 
   return (
