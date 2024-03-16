@@ -13,7 +13,7 @@ function Home() {
 
   useEffect(() => {
     Promise.all([getCategories(), getBanners(), getTopSelling()]).then(() => {
-      // setLoading(false);
+      setLoading(false);
     });
   }, []);
 
